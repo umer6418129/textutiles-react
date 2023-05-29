@@ -3,12 +3,12 @@ import './App.css';
 import Second from './components/Second';
 import React, { useState } from 'react';
 import About from './components/About';
-// import Abot from './components/Abot';
-// import {
-//   BrowserRouter as Router,
-//   Route,
-//   Routes,
-// } from "react-router-dom";
+import Abot from './components/Abot';
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+} from "react-router-dom";
 
 
 function App() {
@@ -65,19 +65,19 @@ function App() {
   }
   return (
     <>
-      {/* <Router> */}
+      <Router>
         <Nav mode={mode} modegreen={modegreen} greenmode={greenmode} toggleMode={toggleMode}></Nav>
         <About alart={alert} mode={mode} modegreen={modegreen}></About>
         <div className='container mt-5'>
-        <Second mode={mode} greenmode={greenmode} showalert={showalert} />
-          {/* <Routes> */}
-            {/* <Route exact path='/About' element={<Abot mode={mode} greenmode={greenmode} />}> */}
-            {/* </Route> */}
-            {/* <Route exact path='/' element={<Second mode={mode} greenmode={greenmode} showalert={showalert} />}> */}
-            {/* </Route> */}
-          {/* </Routes> */}
+        {/* <Second mode={mode} greenmode={greenmode} showalert={showalert} /> */}
+          <Routes>
+            <Route exact path='/About' element={<Abot mode={mode} greenmode={greenmode} />}>
+            </Route>
+            <Route exact path='/' element={<Second mode={mode} greenmode={greenmode} showalert={showalert} />}>
+            </Route>
+          </Routes>
         </div>
-      {/* </Router> */}
+      </Router>
     </>
   );
 }
