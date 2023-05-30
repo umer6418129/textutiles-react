@@ -30,9 +30,9 @@ export default function Second(props) {
                 <h1 className={`text-${props.mode ==='light' && props.greenmode === 'light' ? 'dark' : 'light'}`}>{props.heading}</h1>
                 <textarea value={text} className="form-control h-100" style={{backgroundColor: props.mode ==='light' && props.greenmode=== 'light' ? 'grey' : 'white', color:props.mode ==='light' && props.greenmode === 'light' ? 'white' : 'black'}} placeholder="Leave a comment here" id="floatingTextarea2" rows='8' onChange={change} ></textarea>
                 <div>
-                <button className={` btn btn-${props.mode ==='light' && props.greenmode === 'light' ? 'dark' : 'success'} my-4 m-3`} onClick={upper}  > Change to uppercase</button>
-                <button className={` btn btn-${props.mode ==='light' && props.greenmode === 'light' ? 'dark' : 'success'} my-4 m-3`} onClick={lower} > {props.btn}</button>
-                <button className={` btn btn-${props.mode ==='light' && props.greenmode === 'light' ? 'dark' : 'success'} =my-4 m-3`} onClick={clear} > Clear</button>
+                <button disabled={text.length === 0} className={` btn btn-${props.mode ==='light' && props.greenmode === 'light' ? 'dark' : 'success'} my-4 m-3`} onClick={upper}  > Change to uppercase</button>
+                <button disabled={text.length === 0} className={` btn btn-${props.mode ==='light' && props.greenmode === 'light' ? 'dark' : 'success'} my-4 m-3`} onClick={lower} > {props.btn}</button>
+                <button disabled={text.length === 0} className={` btn btn-${props.mode ==='light' && props.greenmode === 'light' ? 'dark' : 'success'} =my-4 m-3`} onClick={clear} > Clear</button>
                 </div>
             </div>
 
@@ -40,10 +40,10 @@ export default function Second(props) {
 
             <div className={`text-${props.mode ==='light' && props.greenmode === 'light' ? 'dark' : 'light'}`}>
                 <h1>Here is your Summary</h1>
-                <p>{text ? text.split(' ').length : 0} words and {text.length} is alphabates</p>
-                <p>You will be read it with in a {text.split(' ').length * 0.008} min</p>
+                <p>{text.split(/\s+/).filter((element)=>{return element.length !==0}).length} words and {text.length} is alphabates</p>
+                <p>You will be read it with in a {text.split(/\s+/).filter((element)=>{return element.length !==0}).length * 0.008} min</p>
                 <h2 className='text-center'>Preview</h2>
-                <p className='text-center'>{text.length >0 ? text:`Enter the textto Preview here` }</p>
+                <p className='text-center'>{text.length >0 ? text:` Nothing to Preview!` }</p>
             </div>
         </>
     )

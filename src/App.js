@@ -28,12 +28,24 @@ function App() {
     }, 2000);
 
   }
-  const toggleMode = () => {
+  // const removeClass = ()=>{
+  //   document.body.classList.remove('bg-warning')
+  //   document.body.classList.remove('bg-primary')
+  //   document.body.classList.remove('bg-success')
+    
+  // }
+  const toggleMode = (cls) => {
+    // removeClass();
+    // document.body.classList.add('bg-'+ cls)
     if (mode === 'dark') {
-
+      
       setmode('light');
       document.body.style.backgroundColor = 'white';
       showalert('Light mode has been enabled', 'success')
+      
+      // if (document.body.classList.add('bg-'+ cls)) {
+      //   removeClass();
+      // }
       if (greenmode === 'dark') {
         document.body.style.backgroundColor = '#122503';
       } else {
@@ -49,7 +61,7 @@ function App() {
   const modegreen = () => {
     if (greenmode === 'light') {
       setgreenmde('dark')
-      showalert('Dark mode has been enabled', 'success')
+      showalert('Green mode has been enabled', 'success')
       document.body.style.backgroundColor = '#122503';
     }
     else {
